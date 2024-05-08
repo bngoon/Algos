@@ -1,9 +1,3 @@
-
-
-
-
-
-
 def divisibleSumPairs(n, k, ar):
     count = 0
     
