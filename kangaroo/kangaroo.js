@@ -10,3 +10,10 @@ function kangaroo(x1, v1, x2, v2) {
          }
      }
  }
+
+ // Sample Input
+const input = "0 3 4 2";
+const [x1, v1, x2, v2] = input.split(" ").map(Number);
+
+// Output
+console.log(kangaroo(x1, v1, x2, v2));
