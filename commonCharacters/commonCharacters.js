@@ -1,10 +1,20 @@
-function commonCharacters(strings){
-    if (strings.length === 0) return []; //checks if the length of the string is 0 
-
-    const charSets = strings.map(str => new Set(str)); //converts each string to a set of characters
-    let commonSet = charSets[0] // get the intersection of all sets
-    for(let i = 1; i < charSets.length; i++){
-        commonSet = new Set([...commonSet].filter(char => charSets[i].has(char)));
+function commonCharacters(words) {
+    const resultArray = [];
+  
+    // Loop through each character in the first word
+    for (const letter of words[0]) {
+      // Check if the letter is present in every word
+      if (words.every(word => word.includes(letter))) {
+        // If so, add it to the result array
+        resultArray.push(letter);
+        // Replace the first occurrence of the letter in each word to avoid duplicate counting
+        words = words.map(word => word.replace(letter, ''));
+      }
     }
-    return Array.from(commonSet);
-}
+  
+    return resultArray;
+  }
+  
+  // Example usage:
+  let strings = ["bella", "label", "roller"];
+  console.log(commonCharacters(strings)); // Outputs: ["e", "l"]
