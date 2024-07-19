@@ -16,6 +16,14 @@ function reverseInt(n){
 console.log(reverseInt(-15))
 
 
+
+
+
+
+
+
+
+
 // function palindrome(str){
 //     let leftIdx = 0 
 //     let rightIdx = str.length -1;
@@ -38,3 +46,30 @@ function palindrome(str){
     return false
 }
 console.log(palindrome('kayak'))
+
+
+
+
+function maxChar(str){
+    let letterCount = {}
+
+    for (let i = 0; i < str.length; i++){
+        if(!(str[i] in letterCount)){
+            letterCount[str[i]] = 0
+        }
+        letterCount[str[i]]++
+    }
+    for(const [key, value] of Object.entries(letterCount)){
+        console.log(key, value);
+    }   
+        
+    return letterCount
+}
+
+console.log(maxChar(("abccccccccccccd")))
+
+
+
+
+
+
