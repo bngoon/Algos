@@ -16,7 +16,9 @@ return number * power(number, exponent - 1);
 console.log(power(2,5))
 
 function fib(n) {
+    debugger;
     if (n === 2 || n === 1) return 1; 
-    return n - 1 + n -2
+    return fib(n - 1) + fib(n - 2)
 }
 console.log(fib(4))
+
