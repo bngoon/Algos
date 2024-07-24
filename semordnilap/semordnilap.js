@@ -16,4 +16,3 @@ function semordnilap(words) {
   
   console.log(semordnilap(['diaper', 'repaid', 'kayak', 'lipstick', 'stressed', 'desserts']));
   
-  
