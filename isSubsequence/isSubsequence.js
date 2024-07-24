@@ -2,7 +2,7 @@ function isSubsequence(s, t) {
     // initialize two poiners
     sPointer = 0;
     tPointer = 0;
-// loop thorught the string `t`
+// loop thorugh the string `t`
     while (tPointer < t.length){
         //if the characters at the current positions of both pointers match
         if(s[sPointer] === t[tPointer]) {
