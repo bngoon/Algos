@@ -121,3 +121,17 @@ function getNthFib(n){
     }
     return resultArray
   }
+
+  function semordnilap(words){
+    let resultArray = [];
+    let pair = new Set();
+    
+      for(let word of words){
+        let reversed = word.split('').reverse().join('')
+        if(pair.has(reversed) && reversed !== word){
+          resultArray.push([reversed, word])
+        }
+          pair.add(word)
+      }
+          return resultArray 
+    }
