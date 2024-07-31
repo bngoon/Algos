@@ -135,3 +135,53 @@ function getNthFib(n){
       }
           return resultArray 
     }
+
+
+    function generateDocument(characters, document){
+      let charCount = {}
+      
+      for(let char of characters){
+        if(!(char in charCount)){
+          charCount[char] = 0;
+        }
+        charCount[char]++
+      }
+      
+      for(let char of document){
+        if(!(char in charCount) || charCount[char] === 0){
+          return false
+        }
+      charCount[char]--
+      }
+      return true
+    }
+    
+    console.log(generateDocument('ass', 'ass'))
+    
+    function bubbleSort(array){
+      for(let i = 0; i < array.length; i ++){
+        for(let j = 0; j < array.length - 1; j++){
+          if(array[j] > array[j + 1]){
+            let temp = array[j];
+            array[j] = array[j + 1];
+            array[j + 1] = temp
+          }
+        }
+      }
+      return array
+    }
+    
+    console.log(bubbleSort([1,4,1,4,5,6,1,3]))
+    
+    function semordnilap(words){
+      let resultArray = [];
+      let pairs = new Set();
+    
+      for(let element of words){
+        let reversed = element.split('').reverse().join('')
+        if(pairs.has(reversed) && reversed !== element){
+          resultArray.push([reversed, element])
+        }
+        pairs.add(element)
+      }
+      return resultArray
