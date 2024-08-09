@@ -185,3 +185,57 @@ function getNthFib(n){
         pairs.add(element)
       }
       return resultArray
+
+
+
+      function count(string) {
+        let hash = {}
+      
+        for(let i = 0; i < string.length; i++){
+          let letter = string[i];
+          if(letter in hash){
+            hash[letter]++
+         } else {
+           hash[letter] = 1
+          }
+        }
+        return hash
+        }
+      
+      function bubbleSort(arr){
+      
+      
+        for(let i = 0; i < arr.length; i++ ){
+          for(let j = 0; j < arr.length - 1; j++){
+            if(arr[j] > arr[j + 1]){
+              let temp = arr[j];
+              arr[j] = arr[j+1]
+              arr[j + 1] = temp
+            }
+          }
+        }
+        return arr
+       
+      }
+      
+      console.log(bubbleSort([5, 4, 3, 2, 1]))
+      
+      
+      function semordnilap(words){
+        let pairs = new Set ();
+        let result = [];
+      
+        for(let word of words){
+          let reversed = word.split('').reverse().join('')
+          console.log(reversed)
+          if(pairs.has(reversed) && reversed !== word){
+            result.push([word, reversed])
+          }
+          pairs.add(word)
+        }
+        console.log(result)
+        return result  
+      }
+      
+      
+      semordnilap(['diaper', 'abc', 'repaid', 'bba'])
