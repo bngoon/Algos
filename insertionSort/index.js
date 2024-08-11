@@ -1,20 +1,26 @@
-function insertionSort(pairs){
-    const n = pairs.length // initialize length of the pairs array
-    const res = [] //initialize empty array to store the stae of the pairs array after each iteration
-
-
-    for(let i = 0; i < n; i++){// Loop through each element of the 'pairs' array starting from the first element (i.e., index 0).
-        let j = i -1; //start wit h the previous index i - 1. Will compare the current element with the elements before it.
-        
-        // This while loop is supposed to move elements of 'pairs' that are greater than the current element's 'key'
-        // to one position ahead of their current position. However, this logic seems incorrect due to the comparison.
-        while(j >= 0 && pairs[j].key > pairs[j + 1].key ){
-            j-=1 // Decrement 'j' to move back through the array.
-        }
-        res.push([...pairs])
+function insertionSort(pairs) {
+    const n = pairs.length;
+    const res = [];
+  
+    for (let i = 1; i < n; i++) {
+      let current = pairs[i];
+      let j = i - 1;
+  
+      // Move elements that are greater than current to one position ahead of their current position.
+      while (j >= 0 && pairs[j].key > current.key) {
+        pairs[j + 1] = pairs[j];
+        j -= 1;
+      }
+  
+      // Insert the current element into its correct position.
+      pairs[j + 1] = current;
+  
+      // Save the current state of pairs to the result array.
+      res.push([...pairs]);
     }
-    return res
-}
+  
+    return res;
+  }
 
 
 
