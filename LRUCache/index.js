@@ -68,3 +68,40 @@ class LRUCache {
         }
     }
 }
+
+
+var LRUCacheOne = function(capacity) {
+    this.capacity = capacity;
+    this.map = new Map();
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+    if(this.map.has(key)){
+        const val = this.map.get(key)
+        this.map.delete(key)
+        this.map.set(key, val)
+        return val
+    }else {
+        return -1
+    }
+};
+
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+    if(this.map.has(key)){
+        this.map.delete(key)
+    }
+    this.map.set(key, value)
+    if(this.map.size > this.capacity){
+        const firstItem = this.map.keys().next().value;
+        this.map.delete(firstItem)
+    }
+};
